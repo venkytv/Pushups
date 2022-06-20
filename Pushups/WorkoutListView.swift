@@ -18,22 +18,26 @@ struct WorkoutListView: View {
             let workout = store.currentWorkout
             let theme = Theme.orange
             NavigationLink(destination: PushupView(workout: workout, theme: theme)) {
-                CardView(workout: workout)
+                CardView(workout: workout, caption: "Today's workout", image: "heart.fill", theme: theme)
             }
+            .listRowBackground(theme.mainColor)
             
             let nextWorkout = store.currentWorkout.nextWorkout()
             let nextTheme = Theme.poppy
             NavigationLink(destination: PushupView(workout: nextWorkout, theme: nextTheme)) {
-                CardView(workout: nextWorkout)
+                CardView(workout: nextWorkout, caption: "Skip ahead", image: "bolt.heart.fill", theme: nextTheme)
             }
+            .listRowBackground(nextTheme.mainColor)
             
             if let previousWorkout = store.currentWorkout.previousWorkout() {
                 let previousTheme = Theme.seafoam
                 NavigationLink(destination: PushupView(workout: previousWorkout, theme: previousTheme)) {
-                    CardView(workout: previousWorkout)
+                    CardView(workout: previousWorkout, caption: "Repeat last", image: "bandage.fill", theme: previousTheme)
                 }
+                .listRowBackground(previousTheme.mainColor)
             }
         }
+        .navigationTitle("Pushups")
         .onChange(of: scenePhase) { phase in
             if phase == .inactive { saveAction() }
         }

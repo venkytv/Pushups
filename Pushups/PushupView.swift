@@ -59,6 +59,6 @@ struct PushupView: View {
 
 struct PushupView_Previews: PreviewProvider {
     static var previews: some View {
-        PushupView(workout: Workout.sampleData, theme: Theme.orange)
+        PushupView(workout: Workout.sampleData, theme: Theme.poppy)
     }
 }
