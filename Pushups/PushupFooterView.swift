@@ -19,6 +19,7 @@ struct PushupFooterView: View {
                     .font(.title)
             }
         }
+        .padding([.bottom, .horizontal])
     }
 }
 

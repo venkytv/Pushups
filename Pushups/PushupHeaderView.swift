@@ -26,7 +26,7 @@ struct PushupHeaderView: View {
         VStack {
             HStack {
                 Text("Day \(day):")
-                Text(completedSets).foregroundColor(.gray.opacity(0.6)) + Text(remainingSets).foregroundColor(theme.accentColor).fontWeight(.bold)
+                Text(completedSets).foregroundColor(theme.accentColor.opacity(0.4)) + Text(remainingSets).foregroundColor(theme.accentColor).fontWeight(.bold)
             }
         }
     }
