@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2568DBFF285EF22F009B0147 /* PushupsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DBFE285EF22F009B0147 /* PushupsApp.swift */; };
-		2568DC01285EF22F009B0147 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC00285EF22F009B0147 /* ContentView.swift */; };
 		2568DC03285EF231009B0147 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2568DC02285EF231009B0147 /* Assets.xcassets */; };
 		2568DC06285EF231009B0147 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2568DC05285EF231009B0147 /* Preview Assets.xcassets */; };
 		2568DC0E285EF289009B0147 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC0D285EF289009B0147 /* Workout.swift */; };
@@ -23,12 +22,12 @@
 		2568DC212860542F009B0147 /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2568DC1F2860542F009B0147 /* ding.wav */; };
 		2568DC23286070AA009B0147 /* AVPlayer+TimerSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC22286070AA009B0147 /* AVPlayer+TimerSounds.swift */; };
 		2568DC252860749D009B0147 /* PushupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC242860749D009B0147 /* PushupHeaderView.swift */; };
+		256AEDCD2860F75E007597A2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256AEDCC2860F75E007597A2 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2568DBFB285EF22F009B0147 /* Pushups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pushups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2568DBFE285EF22F009B0147 /* PushupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupsApp.swift; sourceTree = "<group>"; };
-		2568DC00285EF22F009B0147 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2568DC02285EF231009B0147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2568DC05285EF231009B0147 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2568DC0D285EF289009B0147 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		2568DC1F2860542F009B0147 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		2568DC22286070AA009B0147 /* AVPlayer+TimerSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimerSounds.swift"; sourceTree = "<group>"; };
 		2568DC242860749D009B0147 /* PushupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupHeaderView.swift; sourceTree = "<group>"; };
+		256AEDCC2860F75E007597A2 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 				2568DC1928604955009B0147 /* PushupTimerView.swift */,
 				2568DC1B28604D57009B0147 /* PushupFooterView.swift */,
 				2568DC0F285F313B009B0147 /* CardView.swift */,
-				2568DC00285EF22F009B0147 /* ContentView.swift */,
+				256AEDCC2860F75E007597A2 /* Theme.swift */,
 				2568DC0C285EF278009B0147 /* Models */,
 				2568DC02285EF231009B0147 /* Assets.xcassets */,
 				2568DC1D28605409009B0147 /* Resources */,
@@ -191,10 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2568DC01285EF22F009B0147 /* ContentView.swift in Sources */,
 				2568DC18286038FE009B0147 /* WorkoutTimer.swift in Sources */,
 				2568DC1C28604D57009B0147 /* PushupFooterView.swift in Sources */,
 				2568DC14285F4FE5009B0147 /* PushupView.swift in Sources */,
+				256AEDCD2860F75E007597A2 /* Theme.swift in Sources */,
 				2568DBFF285EF22F009B0147 /* PushupsApp.swift in Sources */,
 				2568DC12285F33E1009B0147 /* WorkoutListView.swift in Sources */,
 				2568DC23286070AA009B0147 /* AVPlayer+TimerSounds.swift in Sources */,

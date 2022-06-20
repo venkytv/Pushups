@@ -11,9 +11,8 @@ struct PushupHeaderView: View {
     let day: Int
     let currentSet: Int
     let sets: [Int]
-    
-    let foregroundColor: Color = .blue
-    
+    let theme: Theme
+        
     var completedSets: String {
         if currentSet < 2 { return "" }
         return sets.dropLast(sets.count - currentSet + 1).map {String($0)}.joined(separator: " - ") + " - "
@@ -27,7 +26,7 @@ struct PushupHeaderView: View {
         VStack {
             HStack {
                 Text("Day \(day):")
-                Text(completedSets).foregroundColor(.gray) + Text(remainingSets).foregroundColor(foregroundColor).fontWeight(.bold)
+                Text(completedSets).foregroundColor(.gray.opacity(0.6)) + Text(remainingSets).foregroundColor(theme.accentColor).fontWeight(.bold)
             }
         }
     }
@@ -35,6 +34,6 @@ struct PushupHeaderView: View {
 
 struct PushupHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        PushupHeaderView(day: 3, currentSet: 2, sets: [12, 13, 14, 15])
+        PushupHeaderView(day: 3, currentSet: 2, sets: [12, 13, 14, 15], theme: Theme.orange)
     }
 }

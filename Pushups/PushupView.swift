@@ -15,44 +15,50 @@ struct PushupView: View {
     @EnvironmentObject var store: WorkoutStore
     
     let workout: Workout
+    let theme: Theme
     
     private var dingPlayer: AVPlayer { AVPlayer.sharedDingPlayer }
     private var tickPlayer: AVPlayer { AVPlayer.sharedTickPlayer }
     
     var body: some View {
-        VStack {
-            PushupHeaderView(day: workout.day, currentSet: workoutTimer.currentSet, sets: workout.sets)
-            PushupTimerView(isRestInterval: workoutTimer.isRestInterval, secondsRemaining: workoutTimer.secondsRemaining, pushupCount: workoutTimer.pushupCount, currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets)
-            PushupFooterView(currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets, nextSetAction: workoutTimer.nextSet)
-        }
-        .padding()
-        .onAppear {
-            workoutTimer.reset(workout: workout)
-            
-            workoutTimer.restCompleteAction = {
-                dingPlayer.seek(to: .zero)
-                dingPlayer.play()
+        ZStack {
+            RoundedRectangle(cornerRadius: 16.0)
+                .fill(theme.mainColor)
+            VStack {
+                PushupHeaderView(day: workout.day, currentSet: workoutTimer.currentSet, sets: workout.sets, theme: theme)
+                PushupTimerView(isRestInterval: workoutTimer.isRestInterval, secondsRemaining: workoutTimer.secondsRemaining, pushupCount: workoutTimer.pushupCount, currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets)
+                PushupFooterView(currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets, nextSetAction: workoutTimer.nextSet)
             }
-            workoutTimer.restCompleteApproachingAction = {
-                tickPlayer.seek(to: .zero)
-                tickPlayer.play()
+            .padding()
+            .foregroundColor(theme.accentColor)
+            .onAppear {
+                workoutTimer.reset(workout: workout)
+                
+                workoutTimer.restCompleteAction = {
+                    dingPlayer.seek(to: .zero)
+                    dingPlayer.play()
+                }
+                workoutTimer.restCompleteApproachingAction = {
+                    tickPlayer.seek(to: .zero)
+                    tickPlayer.play()
+                }
+                workoutTimer.workoutCompleteAction = {
+                    store.currentWorkout = Workout(forDay: workout.day + 1)
+                    self.presentationMode.wrappedValue.dismiss()
+                }
+                
+                workoutTimer.startWorkout()
             }
-            workoutTimer.workoutCompleteAction = {
-                store.currentWorkout = Workout(forDay: workout.day + 1)
-                self.presentationMode.wrappedValue.dismiss()
+            .onDisappear {
+                workoutTimer.stopWorkout()
             }
-            
-            workoutTimer.startWorkout()
-        }
-        .onDisappear {
-            workoutTimer.stopWorkout()
-        }
         .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
 struct PushupView_Previews: PreviewProvider {
     static var previews: some View {
-        PushupView(workout: Workout.sampleData)
+        PushupView(workout: Workout.sampleData, theme: Theme.orange)
     }
 }

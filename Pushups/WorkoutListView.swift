@@ -16,17 +16,20 @@ struct WorkoutListView: View {
     var body: some View {
         List {
             let workout = store.currentWorkout
-            NavigationLink(destination: PushupView(workout: workout)) {
+            let theme = Theme.orange
+            NavigationLink(destination: PushupView(workout: workout, theme: theme)) {
                 CardView(workout: workout)
             }
             
             let nextWorkout = store.currentWorkout.nextWorkout()
-            NavigationLink(destination: PushupView(workout: nextWorkout)) {
+            let nextTheme = Theme.poppy
+            NavigationLink(destination: PushupView(workout: nextWorkout, theme: nextTheme)) {
                 CardView(workout: nextWorkout)
             }
             
             if let previousWorkout = store.currentWorkout.previousWorkout() {
-                NavigationLink(destination: PushupView(workout: previousWorkout)) {
+                let previousTheme = Theme.seafoam
+                NavigationLink(destination: PushupView(workout: previousWorkout, theme: previousTheme)) {
                     CardView(workout: previousWorkout)
                 }
             }
