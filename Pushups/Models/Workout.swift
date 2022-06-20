@@ -55,8 +55,8 @@ struct Workout: Codable {
         Workout(sets: [100], rest: 0, day: 0),
         
         // Week 1
-        Workout(sets: [10, 12, 13], rest: 60, day: 1),
-        Workout(sets: [12, 13, 14], rest: 90, day: 2),
+        Workout(sets: [10, 12, 13], rest: 5, day: 1),
+        Workout(sets: [12, 13, 14], rest: 10, day: 2),
     ]
     
     static var sampleData: Workout {
