@@ -9,30 +9,30 @@ import SwiftUI
 
 struct WorkoutListView: View {
     @EnvironmentObject var store: WorkoutStore
-    @State private var workout: Workout = Workout(sets: [100], rest: 0, day: 0)
+    @Environment(\.scenePhase) private var scenePhase
     
-    private var nextWorkout: Workout {
-        workout.nextWorkout()
-    }
-    
+    let saveAction: ()->Void
+
     var body: some View {
         List {
+            let workout = store.currentWorkout
             NavigationLink(destination: PushupView(workout: workout)) {
                 CardView(workout: workout)
             }
             
+            let nextWorkout = store.currentWorkout.nextWorkout()
             NavigationLink(destination: PushupView(workout: nextWorkout)) {
                 CardView(workout: nextWorkout)
             }
             
-            if let previousWorkout = workout.previousWorkout() {
+            if let previousWorkout = store.currentWorkout.previousWorkout() {
                 NavigationLink(destination: PushupView(workout: previousWorkout)) {
                     CardView(workout: previousWorkout)
                 }
             }
         }
-        .onAppear {
-            workout = store.currentWorkout
+        .onChange(of: scenePhase) { phase in
+            if phase == .inactive { saveAction() }
         }
     }
 }
@@ -41,7 +41,7 @@ struct WorkoutListView_Previews: PreviewProvider {
     static var previews: some View {
         let store: WorkoutStore = WorkoutStore()
         NavigationView {
-            WorkoutListView()
+            WorkoutListView(saveAction: {})
         }
         .environmentObject(store)
     }

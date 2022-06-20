@@ -14,7 +14,23 @@ struct PushupsApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                WorkoutListView()
+                WorkoutListView() {
+                    WorkoutStore.save(workout: store.currentWorkout) { result in
+                        if case .failure(let error) = result {
+                            fatalError(error.localizedDescription)
+                        }
+                    }
+                }
+            }
+            .onAppear {
+                WorkoutStore.load { result in
+                    switch result {
+                    case .failure(let error):
+                        fatalError(error.localizedDescription)
+                    case .success(let workout):
+                        store.currentWorkout = workout
+                    }
+                }
             }
             .environmentObject(store)
         }
