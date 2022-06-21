@@ -60,6 +60,10 @@ class WorkoutTimer: ObservableObject {
         if self.isRestInterval {
             self.secondsRemaining = 0
             self.isRestInterval = false
+            
+            self.timer?.invalidate()
+            self.restCompleteAction?()
+            
             return
         }
         
