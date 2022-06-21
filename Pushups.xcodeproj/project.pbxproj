@@ -23,6 +23,7 @@
 		2568DC23286070AA009B0147 /* AVPlayer+TimerSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC22286070AA009B0147 /* AVPlayer+TimerSounds.swift */; };
 		2568DC252860749D009B0147 /* PushupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC242860749D009B0147 /* PushupHeaderView.swift */; };
 		256AEDCD2860F75E007597A2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256AEDCC2860F75E007597A2 /* Theme.swift */; };
+		256AEDCF2861B22C007597A2 /* PushupArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256AEDCE2861B22C007597A2 /* PushupArc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		2568DC22286070AA009B0147 /* AVPlayer+TimerSounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVPlayer+TimerSounds.swift"; sourceTree = "<group>"; };
 		2568DC242860749D009B0147 /* PushupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupHeaderView.swift; sourceTree = "<group>"; };
 		256AEDCC2860F75E007597A2 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		256AEDCE2861B22C007597A2 /* PushupArc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushupArc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				2568DC242860749D009B0147 /* PushupHeaderView.swift */,
 				2568DC1928604955009B0147 /* PushupTimerView.swift */,
 				2568DC1B28604D57009B0147 /* PushupFooterView.swift */,
+				256AEDCE2861B22C007597A2 /* PushupArc.swift */,
 				2568DC0F285F313B009B0147 /* CardView.swift */,
 				256AEDCC2860F75E007597A2 /* Theme.swift */,
 				2568DC0C285EF278009B0147 /* Models */,
@@ -194,6 +197,7 @@
 				2568DC18286038FE009B0147 /* WorkoutTimer.swift in Sources */,
 				2568DC1C28604D57009B0147 /* PushupFooterView.swift in Sources */,
 				2568DC14285F4FE5009B0147 /* PushupView.swift in Sources */,
+				256AEDCF2861B22C007597A2 /* PushupArc.swift in Sources */,
 				256AEDCD2860F75E007597A2 /* Theme.swift in Sources */,
 				2568DBFF285EF22F009B0147 /* PushupsApp.swift in Sources */,
 				2568DC12285F33E1009B0147 /* WorkoutListView.swift in Sources */,

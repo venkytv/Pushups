@@ -32,6 +32,15 @@ struct PushupTimerView: View {
                     }
                 }
             }
+            .overlay {
+                ForEach(1...totalSets, id: \.self) { index in
+                    if index < currentSet {
+                        PushupArc(currentSet: index, totalSets: totalSets)
+                            .rotation(Angle(degrees: -90))
+                            .stroke(Theme.orange.mainColor, lineWidth: 12)
+                    }
+                }
+            }
 
     }
 }
