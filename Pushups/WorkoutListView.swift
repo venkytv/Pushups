@@ -16,7 +16,7 @@ struct WorkoutListView: View {
     var body: some View {
         List {
             let workout = store.currentWorkout
-            let theme = Theme.orange
+            let theme = Theme.yellow
             NavigationLink(destination: PushupView(workout: workout, theme: theme)) {
                 CardView(workout: workout, caption: "Today's workout", image: "heart.fill", theme: theme)
             }

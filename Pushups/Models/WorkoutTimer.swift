@@ -16,7 +16,8 @@ class WorkoutTimer: ObservableObject {
     @Published var pushupCount = 10
     @Published var isRestInterval = false
     
-    var restCompleteAction: (() -> Void)?
+    var workoutStartAction: ((Int) -> Void)?
+    var restCompleteAction: ((Int) -> Void)?
     var restCompleteApproachingAction: (() -> Void)?
     var workoutCompleteAction: (() -> Void)?
     
@@ -62,7 +63,7 @@ class WorkoutTimer: ObservableObject {
             self.isRestInterval = false
             
             self.timer?.invalidate()
-            self.restCompleteAction?()
+            self.restCompleteAction?(self.pushupCount)
             
             return
         }
@@ -74,6 +75,10 @@ class WorkoutTimer: ObservableObject {
         }
         currentSet = nextSet
         pushupCount = workout.sets[currentSet - 1] // Zero-index
+        
+        if currentSet == 1 {
+            workoutStartAction?(pushupCount)
+        }
         
         if currentRestInterval > 0 {
             isRestInterval = true
@@ -90,7 +95,7 @@ class WorkoutTimer: ObservableObject {
                         // Timer done
                         self.timer?.invalidate()
                         self.isRestInterval = false
-                        self.restCompleteAction?()
+                        self.restCompleteAction?(self.pushupCount)
                     } else if self.secondsRemaining <= self.restCompleteApproachingActionTimeLimit  && self.secondsRemaining != self.lastActionTime {
                         self.lastActionTime = self.secondsRemaining
                         self.restCompleteApproachingAction?()

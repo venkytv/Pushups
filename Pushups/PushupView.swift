@@ -20,6 +20,15 @@ struct PushupView: View {
     private var dingPlayer: AVPlayer { AVPlayer.sharedDingPlayer }
     private var tickPlayer: AVPlayer { AVPlayer.sharedTickPlayer }
     
+    private var synthesizer: AVSpeechSynthesizer { AVSpeechSynthesizer() }
+    
+    private func say(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.rate = 0.55
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        synthesizer.speak(utterance)
+    }
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16.0)
@@ -36,9 +45,11 @@ struct PushupView: View {
                 
                 workoutTimer.reset(workout: workout)
                 
-                workoutTimer.restCompleteAction = {
-                    dingPlayer.seek(to: .zero)
-                    dingPlayer.play()
+                workoutTimer.workoutStartAction = { pushupCount in
+                    say("Perform \(pushupCount) push-ups")
+                }
+                workoutTimer.restCompleteAction = { pushupCount in
+                    say("Next set: \(pushupCount) push-ups")
                 }
                 workoutTimer.restCompleteApproachingAction = {
                     tickPlayer.seek(to: .zero)
