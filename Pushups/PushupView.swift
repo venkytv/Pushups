@@ -26,12 +26,14 @@ struct PushupView: View {
                 .fill(theme.mainColor)
             VStack {
                 PushupHeaderView(day: workout.day, currentSet: workoutTimer.currentSet, sets: workout.sets, theme: theme)
-                PushupTimerView(isRestInterval: workoutTimer.isRestInterval, secondsRemaining: workoutTimer.secondsRemaining, pushupCount: workoutTimer.pushupCount, currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets)
+                PushupTimerView(isRestInterval: workoutTimer.isRestInterval, secondsRemaining: workoutTimer.secondsRemaining, pushupCount: workoutTimer.pushupCount, currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets, theme: theme)
                 PushupFooterView(currentSet: workoutTimer.currentSet, totalSets: workoutTimer.totalSets, nextSetAction: workoutTimer.nextSet)
             }
             .padding()
             .foregroundColor(theme.accentColor)
             .onAppear {
+                UIApplication.shared.isIdleTimerDisabled = true
+                
                 workoutTimer.reset(workout: workout)
                 
                 workoutTimer.restCompleteAction = {
@@ -51,6 +53,7 @@ struct PushupView: View {
             }
             .onDisappear {
                 workoutTimer.stopWorkout()
+                UIApplication.shared.isIdleTimerDisabled = false
             }
         .navigationBarTitleDisplayMode(.inline)
         }

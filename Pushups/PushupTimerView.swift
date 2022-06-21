@@ -13,6 +13,7 @@ struct PushupTimerView: View {
     let pushupCount: Int
     let currentSet: Int
     let totalSets: Int
+    let theme: Theme
     
     var body: some View {
         Circle()
@@ -37,7 +38,7 @@ struct PushupTimerView: View {
                     if index < currentSet {
                         PushupArc(currentSet: index, totalSets: totalSets)
                             .rotation(Angle(degrees: -90))
-                            .stroke(Theme.orange.mainColor, lineWidth: 12)
+                            .stroke(theme.mainColor, lineWidth: 12)
                     }
                 }
             }
@@ -47,6 +48,6 @@ struct PushupTimerView: View {
 
 struct PushupTimerView_Previews: PreviewProvider {
     static var previews: some View {
-        PushupTimerView(isRestInterval: false, secondsRemaining: 5, pushupCount: 10, currentSet: 3, totalSets: 5)
+        PushupTimerView(isRestInterval: false, secondsRemaining: 5, pushupCount: 10, currentSet: 3, totalSets: 5, theme: Theme.orange)
     }
 }
