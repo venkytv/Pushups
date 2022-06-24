@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import HealthKit
 
 @main
 struct PushupsApp: App {
@@ -23,6 +24,7 @@ struct PushupsApp: App {
                 }
             }
             .onAppear {
+                WorkoutManager.shared.requestAuthorization()
                 WorkoutStore.load { result in
                     switch result {
                     case .failure(let error):

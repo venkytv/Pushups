@@ -10,6 +10,8 @@ import Foundation
 class WorkoutTimer: ObservableObject {
     private var workout: Workout
     
+    private var workoutManager = WorkoutManager.shared
+        
     @Published var totalSets = 2
     @Published var currentSet = 1
     @Published var secondsRemaining = 0
@@ -23,6 +25,8 @@ class WorkoutTimer: ObservableObject {
     
     private var timer: Timer?
     private var frequency: TimeInterval { 1.0 / 60.0 }
+    
+    private var totalPushups = 0
     
     private var restCompleteApproachingActionTimeLimit = 5 // Time limit at which to start performing the rest complete approaching action
     private var lastActionTime = 0 // Time when the rest complete approaching action was last fired
@@ -48,6 +52,7 @@ class WorkoutTimer: ObservableObject {
     }
     
     func startWorkout() {
+        workoutManager.startWorkout()
         nextSet()
     }
     
@@ -65,22 +70,30 @@ class WorkoutTimer: ObservableObject {
             self.timer?.invalidate()
             self.restCompleteAction?(self.pushupCount)
             
+            workoutManager.startSet()
+            
             return
         }
         
         let nextSet = currentSet + 1
         guard nextSet <= totalSets else {
+            workoutManager.completeWorkout()
             workoutCompleteAction?()
             return
         }
         currentSet = nextSet
         pushupCount = workout.sets[currentSet - 1] // Zero-index
+        totalPushups += pushupCount
         
         if currentSet == 1 {
             workoutStartAction?(pushupCount)
+            workoutManager.startSet()
         }
         
         if currentRestInterval > 0 {
+            // Record last set of pushups
+            workoutManager.completeSet()
+            
             isRestInterval = true
             secondsRemaining = workout.rest
             
@@ -96,6 +109,7 @@ class WorkoutTimer: ObservableObject {
                         self.timer?.invalidate()
                         self.isRestInterval = false
                         self.restCompleteAction?(self.pushupCount)
+                        self.workoutManager.startSet()
                     } else if self.secondsRemaining <= self.restCompleteApproachingActionTimeLimit  && self.secondsRemaining != self.lastActionTime {
                         self.lastActionTime = self.secondsRemaining
                         self.restCompleteApproachingAction?()
