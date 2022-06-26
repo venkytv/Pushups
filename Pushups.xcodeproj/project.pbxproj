@@ -30,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		252B3DD42865BD0D00883FF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		254E1CDF28689D2200E59360 /* ATTRIBUTION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ATTRIBUTION.md; sourceTree = "<group>"; };
 		2568DBFB285EF22F009B0147 /* Pushups.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pushups.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2568DBFE285EF22F009B0147 /* PushupsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupsApp.swift; sourceTree = "<group>"; };
 		2568DC02285EF231009B0147 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 				25CA1E742864CA81002BE6F6 /* Pushups.entitlements */,
 				2568DBFE285EF22F009B0147 /* PushupsApp.swift */,
 				2568DC11285F33E1009B0147 /* WorkoutListView.swift */,
+				254E1CDF28689D2200E59360 /* ATTRIBUTION.md */,
 				2568DC13285F4FE5009B0147 /* PushupView.swift */,
 				2568DC242860749D009B0147 /* PushupHeaderView.swift */,
 				2568DC1928604955009B0147 /* PushupTimerView.swift */,
