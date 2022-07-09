@@ -36,6 +36,13 @@ struct WorkoutListView: View {
                 }
                 .listRowBackground(previousTheme.mainColor)
             }
+            
+            let chooseDayTheme = Theme.lavender
+            NavigationLink(destination: ChooseDayView()) {
+                Text("Choose Day")
+            }
+            .foregroundColor(chooseDayTheme.accentColor)
+            .listRowBackground(chooseDayTheme.mainColor)
         }
         .navigationTitle("Pushups")
         .onChange(of: scenePhase) { phase in

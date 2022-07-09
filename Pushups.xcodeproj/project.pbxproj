@@ -24,6 +24,7 @@
 		2568DC252860749D009B0147 /* PushupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568DC242860749D009B0147 /* PushupHeaderView.swift */; };
 		256AEDCD2860F75E007597A2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256AEDCC2860F75E007597A2 /* Theme.swift */; };
 		256AEDCF2861B22C007597A2 /* PushupArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256AEDCE2861B22C007597A2 /* PushupArc.swift */; };
+		257D8C832879471B005F5768 /* ChooseDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D8C822879471B005F5768 /* ChooseDayView.swift */; };
 		25CA1E772864CA81002BE6F6 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CA1E762864CA81002BE6F6 /* HealthKit.framework */; };
 		25CA1E792864EEDB002BE6F6 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CA1E782864EEDB002BE6F6 /* WorkoutManager.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		2568DC242860749D009B0147 /* PushupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushupHeaderView.swift; sourceTree = "<group>"; };
 		256AEDCC2860F75E007597A2 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		256AEDCE2861B22C007597A2 /* PushupArc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushupArc.swift; sourceTree = "<group>"; };
+		257D8C822879471B005F5768 /* ChooseDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDayView.swift; sourceTree = "<group>"; };
 		25CA1E742864CA81002BE6F6 /* Pushups.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pushups.entitlements; sourceTree = "<group>"; };
 		25CA1E762864CA81002BE6F6 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		25CA1E782864EEDB002BE6F6 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				2568DC11285F33E1009B0147 /* WorkoutListView.swift */,
 				254E1CDF28689D2200E59360 /* ATTRIBUTION.md */,
 				2568DC13285F4FE5009B0147 /* PushupView.swift */,
+				257D8C822879471B005F5768 /* ChooseDayView.swift */,
 				2568DC242860749D009B0147 /* PushupHeaderView.swift */,
 				2568DC1928604955009B0147 /* PushupTimerView.swift */,
 				2568DC1B28604D57009B0147 /* PushupFooterView.swift */,
@@ -222,6 +225,7 @@
 				256AEDCF2861B22C007597A2 /* PushupArc.swift in Sources */,
 				256AEDCD2860F75E007597A2 /* Theme.swift in Sources */,
 				2568DBFF285EF22F009B0147 /* PushupsApp.swift in Sources */,
+				257D8C832879471B005F5768 /* ChooseDayView.swift in Sources */,
 				2568DC12285F33E1009B0147 /* WorkoutListView.swift in Sources */,
 				2568DC23286070AA009B0147 /* AVPlayer+TimerSounds.swift in Sources */,
 				2568DC1A28604955009B0147 /* PushupTimerView.swift in Sources */,
